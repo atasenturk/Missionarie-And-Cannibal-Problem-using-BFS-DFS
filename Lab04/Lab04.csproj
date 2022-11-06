@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Libraries\BFS.cs" />
+    <Compile Include="Libraries\DFS.cs" />
     <Compile Include="Libraries\Graph.cs" />
     <Compile Include="Libraries\Graph_Node.cs" />
     <Compile Include="Libraries\Node.cs" />

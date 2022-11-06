@@ -12,12 +12,18 @@ namespace Lab04
         static void Main(string[] args)
         {
             BFS bfs = new BFS();
+            DFS dfs = new DFS();
+            State initial = new State(3, 0, 3, 0, false);
+            State finalBFS = bfs.Perform_BFS(initial);
+            State finalDFS = dfs.Perform_DFS(initial);
 
-            State initial = new State(3, 3, 0, 0, false);
-            State final = bfs.Perform_BFS(initial);
+            Console.WriteLine("   BFS PATH");
+            Console.WriteLine(finalBFS.GetPath());
 
-            Console.WriteLine(final.LeftM + " " + final.LeftC + " " + final.RightM + " " + final.RightC);
+            Console.WriteLine("\n\n\n   DFS PATH");
+            Console.WriteLine(finalDFS.GetPath());
 
+            Console.ReadKey();
         }
     }
 }

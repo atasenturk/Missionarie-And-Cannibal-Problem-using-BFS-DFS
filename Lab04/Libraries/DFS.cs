@@ -1,4 +1,4 @@
-﻿using AiLab2;
+﻿using AiLab2.Stack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,21 +7,20 @@ using System.Threading.Tasks;
 
 namespace Lab04.Libraries
 {
-    public class BFS
+    public class DFS
     {
-        public State Perform_BFS(State initial)
+        public State Perform_DFS(State initial)
         {
             State current;
 
-            AiLab2.Queue<State> Queue = new AiLab2.Queue<State>();
+            AiLab2.Stack.Stack<State> stack = new AiLab2.Stack.Stack<State>();
 
-            Queue.Enqueue(initial);
+            stack.Push(initial);
             List<State> visited = new List<State>();
             visited.Add(initial);
-            while (Queue.Size() != 0)
+            while (stack.Size() != 0)
             {
-                current = Queue.Dequeue();
-                //Console.WriteLine("MissLeft: " + current.LeftM + " CannLeft: " + current.LeftC + " MissRight: " + current.RightM + " CannRight: " + current.RightC + "Boat is: " + current.Boat);
+                current = stack.Pop();
                 if (current.IsFinal())
                 {
                     return current;
@@ -36,15 +35,8 @@ namespace Lab04.Libraries
                         visited.Add(Node);
                         Node.IsVisited = true;
                         Node.Parent = current;
-                        Queue.Enqueue(Node);
+                        stack.Push(Node);
                     }
-                    //if (!Node.IsVisited)
-                    //{
-                    //    visited.Add(Node);
-                    //    Node.IsVisited = true;
-                    //    Node.Parent = current;
-                    //    Queue.Enqueue(Node);
-                    //}
                 }
             }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AiLab2.Stack
 {
-    public class Stack<T> where T : IComparable
+    public class Stack<T>
     {
         private Node<T> head;
         private Node<T> tail;
@@ -101,65 +101,65 @@ namespace AiLab2.Stack
 
         }
 
-        private void sortedInsert(T x)
-        {
-            if (Size() == 0 || x.CompareTo(Peek()) > 0)
-            {
-                Push(x);
-                return;
-            }
+        //private void sortedInsert(T x)
+        //{
+        //    if (Size() == 0 || x.CompareTo(Peek()) > 0)
+        //    {
+        //        Push(x);
+        //        return;
+        //    }
 
-            T temp = Peek();
-            Pop();
-            sortedInsert(x);
-            Push(temp);
-        }
+        //    T temp = Peek();
+        //    Pop();
+        //    sortedInsert(x);
+        //    Push(temp);
+        //}
 
-        public void Sort()
-        {
-            if (Size() > 0)
-            {
-                T x = Peek();
-                Pop();
-                Sort();
-                sortedInsert(x);
-            }
-        }
+        //public void Sort()
+        //{
+        //    if (Size() > 0)
+        //    {
+        //        T x = Peek();
+        //        Pop();
+        //        Sort();
+        //        sortedInsert(x);
+        //    }
+        //}
 
-        public void Delete_Duplicates()
-        {
-            Sort();
-            if (head == null || head == tail) return;
-            Node<T> p = head;
-            Node<T> q = head.next;
-            while (q != null)
-            {
-                if (p.Value.CompareTo(q.Value) == 0)
-                {
-                    p.next = q.next;
-                    q = q.next;
-                    if (q != null)
-                        q.prev = p;
-                }
-                else
-                {
-                    p = p.next;
-                    q = q.next;
-                }
-            }
-        }
+        //public void Delete_Duplicates()
+        //{
+        //    Sort();
+        //    if (head == null || head == tail) return;
+        //    Node<T> p = head;
+        //    Node<T> q = head.next;
+        //    while (q != null)
+        //    {
+        //        if (p.Value.CompareTo(q.Value) == 0)
+        //        {
+        //            p.next = q.next;
+        //            q = q.next;
+        //            if (q != null)
+        //                q.prev = p;
+        //        }
+        //        else
+        //        {
+        //            p = p.next;
+        //            q = q.next;
+        //        }
+        //    }
+        //}
 
-        public bool Contains(T Value)
-        {
-            Node<T> temp = head;
-            while (temp != null)
-            {
-                if (temp.Value.CompareTo(Value) == 0) return true;
-                temp = temp.next;
-            }
+        //public bool Contains(T Value)
+        //{
+        //    Node<T> temp = head;
+        //    while (temp != null)
+        //    {
+        //        if (temp.Value.CompareTo(Value) == 0) return true;
+        //        temp = temp.next;
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
     }
 }
