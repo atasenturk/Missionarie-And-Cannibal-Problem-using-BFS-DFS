@@ -118,9 +118,8 @@ namespace Lab04.Libraries
         public string GetPath()
         {
             State curr = this;
-            string final = "                                       States\n\n" +
-                           "| Step | Missionarie Left | Cannibal Left | Missionarie Right | Cannibal Right | Boat   |\n" +
-                           "----------------------------------------------------------------------------------------\n";
+            string final = "States\n";
+
             List<State> list = new List<State>();
             while (curr != null)
             {
@@ -129,40 +128,17 @@ namespace Lab04.Libraries
             }
 
             int counter = 1;
-            for (int i = list.Count - 1; i >= 0; i--)
+
+            final = final + "Initial state:   --> Left Missionarie: " + list[list.Count - 1].LeftM + ", Left Cannibal: " + list[list.Count - 1].LeftC + ", Boat: Left\n";
+            for (int i = list.Count - 2; i >= 0; i--)
             {
                 if (list[i].Boat == true)
                 {
-                    final += "| " + counter.ToString().PadRight(5) +
-                    "| " + list[i].LeftM.ToString().PadRight(16) + " | "
-                    + list[i].LeftC + "             | "
-                    + list[i].RightM + "                 | "
-                    + list[i].RightC + "              |"
-                    + " Right".PadRight(8) + "|\n";
+                    final = final + "State: ".PadRight(9) + counter.ToString().PadRight(7) + " -->".PadRight(4) + " Left Missionarie: ".PadRight(5) + list[i].LeftM + ", Left Cannibal: " + list[i].LeftC + ", Boat: Right\n";
                 }
-                else
-                {
-                    final += "| " + counter.ToString().PadRight(5) +
-                    "| " + list[i].LeftM.ToString().PadRight(16) + " | "
-                    + list[i].LeftC + "             | "
-                    + list[i].RightM + "                 | "
-                    + list[i].RightC + "              |"
-                    + " Left".PadRight(8) + "|\n";
-                }
-
+                else final = final + "State: ".PadRight(9) + counter.ToString().PadRight(7) + " -->".PadRight(4) + " Left Missionarie: ".PadRight(5) + list[i].LeftM + ", Left Cannibal: " + list[i].LeftC + ", Boat: Left\n";
                 counter++;
             }
-            final += "----------------------------------------------------------------------------------------\n";
-            //final = final + "Initial state:  -->  Left Missionarie: " + list[list.Count - 1].LeftM + ", Left Cannibal: " + list[list.Count - 1].LeftC + ", Boat: Left\n";
-            //for (int i = list.Count - 2; i >= 0; i--)
-            //{
-            //    if (list[i].Boat == true)
-            //    {
-            //        final = final + "State: ".PadRight(9) + counter.ToString().PadRight(8) + " -->".PadRight(5) + " Left Missionarie: ".PadRight(5) + list[i].LeftM + ", Left Cannibal: " + list[i].LeftC + ", Boat: Right\n";
-            //    }
-            //    else final = final + "State: ".PadRight(9) + counter.ToString().PadRight(8) + " -->".PadRight(5) + " Left Missionarie: ".PadRight(5) + list[i].LeftM + ", Left Cannibal: " + list[i].LeftC + ", Boat: Left\n";
-            //    counter++;
-            //}
 
             return final;
         }

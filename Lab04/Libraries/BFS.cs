@@ -21,7 +21,7 @@ namespace Lab04.Libraries
             while (Queue.Size() != 0)
             {
                 current = Queue.Dequeue();
-                //Console.WriteLine("MissLeft: " + current.LeftM + " CannLeft: " + current.LeftC + " MissRight: " + current.RightM + " CannRight: " + current.RightC + "Boat is: " + current.Boat);
+
                 if (current.IsFinal())
                 {
                     return current;
@@ -38,13 +38,6 @@ namespace Lab04.Libraries
                         Node.Parent = current;
                         Queue.Enqueue(Node);
                     }
-                    //if (!Node.IsVisited)
-                    //{
-                    //    visited.Add(Node);
-                    //    Node.IsVisited = true;
-                    //    Node.Parent = current;
-                    //    Queue.Enqueue(Node);
-                    //}
                 }
             }
 

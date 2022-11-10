@@ -27,3 +27,17 @@ namespace Lab04
         }
     }
 }
+
+
+//BFS algorithm:
+// Optimality: It is optimal. It finds the shortest path
+// Completeness: We can find the solution using this algorithm.
+// Time Complexity: O(n) where n is the number of nodes
+// Space Complexity: O(n) where n is the number of nodes
+
+
+// DFS algorithm:
+// Optimality: It is NOT optimal.
+// Completeness: We can find the solution using this algorithm.
+// Time Complexity: O(n) where n is the number of nodes
+// Space Complexity: O(d) where d is the depth of the tree.
